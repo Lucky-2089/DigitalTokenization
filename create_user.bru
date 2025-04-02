@@ -1,0 +1,21 @@
+meta {
+  name: create_user
+  type: http
+  seq: 4
+}
+
+post {
+  url: https://dummyjson.com/users/add
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+      "firstName": "John",
+      "lastName": "Doe",
+      "age": 30,
+      "gender": "male",
+      "email": "john.doe@example.com"
+  }
+}

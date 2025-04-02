@@ -1,0 +1,18 @@
+meta {
+  name: update_user
+  type: http
+  seq: 5
+}
+
+put {
+  url: https://dummyjson.com/users/201
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+      "firstName": "Alice",
+      "lastName": "Alice"
+  }
+}
