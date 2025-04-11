@@ -1,0 +1,33 @@
+pipeline:
+  name: Bruno_API_Test_Pipeline
+  identifier: bruno_api_test_pipeline
+  projectIdentifier: default_project
+  orgIdentifier: default
+  stages:
+    - stage:
+        name: Run_Bruno_Tests
+        identifier: run_bruno_tests
+        type: CI
+        spec:
+          cloneCodebase: true
+          platform:
+            os: Linux
+            arch: Amd64
+          steps:
+            - step:
+                name: Install Bruno CLI
+                identifier: install_bruno
+                type: Run
+                spec:
+                  shell: Sh
+                  command: |
+                    npm install -g @usebruno/cli
+
+            - step:
+                name: Run Bruno Tests
+                identifier: run_tests
+                type: Run
+                spec:
+                  shell: Sh
+                  command: |
+                    bruno run .
